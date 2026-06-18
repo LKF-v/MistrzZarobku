@@ -52,16 +52,16 @@
             position: relative;
             z-index: 3;
             text-align: center;
-            padding: 40px;
-            max-width: 500px;
-            width: 90%;
+            padding: 20px;
+            width: 100%;
+            max-width: 600px;
         }
 
-        /* SZEFOWSKI TYTUŁ - MISTRZZAROBKU */
+        /* SZEFOWSKI TYTUŁ - ZABEZPIECZONY PRZED UCINANIEM */
         .brand-title {
-            font-size: 3.8rem;
+            font-size: clamp(2rem, 8vw, 3.5rem); /* Automatyczne skalowanie do ekranu */
             font-weight: 900;
-            letter-spacing: -0.05em;
+            letter-spacing: -0.03em;
             text-transform: uppercase;
             background: linear-gradient(135deg, #ffe082 0%, #d4af37 40%, #8a6f27 100%);
             -webkit-background-clip: text;
@@ -71,6 +71,7 @@
             filter: drop-shadow(0 4px 15px rgba(212, 175, 55, 0.2));
             transition: transform 0.3s ease;
             user-select: none;
+            white-space: nowrap; /* Zakaz łamania tekstu */
         }
 
         .brand-title:hover {
@@ -78,20 +79,22 @@
         }
 
         .brand-subtitle {
-            font-size: 0.8rem;
+            font-size: clamp(0.65rem, 2vw, 0.8rem);
             letter-spacing: 0.5em;
             text-transform: uppercase;
             color: #666666;
             margin-bottom: 40px;
             font-weight: 600;
+            text-indent: 0.5em;
         }
 
-        /* SEKTA PRZYCISKÓW / LINKÓW */
+        /* SEKTA PRZYCISKÓW */
         .links-wrapper {
             display: flex;
             flex-direction: column;
             gap: 16px;
             align-items: center;
+            width: 100%;
         }
 
         /* UNIWERSALNY STYL DLA PRZYCISKÓW */
@@ -137,7 +140,7 @@
         .tiktok-btn:hover {
             transform: translateY(-5px);
             background: #000000;
-            border-color: #ff0050; /* New-school TikTok hover glow effect */
+            border-color: #ff0050;
             box-shadow: 0 15px 40px rgba(255, 0, 80, 0.3), 0 0 30px rgba(0, 242, 234, 0.1);
         }
 
@@ -166,7 +169,7 @@
                 Dołącz do Discorda
             </a>
 
-            <!-- NOWY: Link do TikToka -->
+            <!-- Link do TikToka -->
             <a href="https://www.tiktok.com/@mistrzzarobku" class="btn-link tiktok-btn" target="_blank">
                 <svg viewBox="0 0 448 512">
                     <path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a72.36,72.36,0,1,0,40.23,65V0h88.16a117.43,117.43,0,0,0,13.67,41.61,118.62,118.62,0,0,0,52.2,47A116.77,116.77,0,0,0,448,102.23Z"/>
