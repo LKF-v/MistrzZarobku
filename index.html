@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MistrzZarobku</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: #030303;
+            color: #ffffff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* TŁO Z CZĄSTECZKAMI ZŁOTA (CANVAS) */
+        #gold-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* SUBTELNA POŚWIATA W TLE */
+        .ambient-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, rgba(0,0,0,0) 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* GŁÓWNY KONTENER */
+        .card-container {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        /* SZEFOWSKI TYTUŁ - MISTRZZAROBKU */
+        .brand-title {
+            font-size: 3.8rem;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #ffe082 0%, #d4af37 40%, #8a6f27 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 4px 15px rgba(212, 175, 55, 0.2));
+            transition: transform 0.3s ease;
+            user-select: none;
+        }
+
+        .brand-title:hover {
+            transform: scale(1.02);
+        }
+
+        .brand-subtitle {
+            font-size: 0.8rem;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: #666666;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        /* NOWOCZESNY PRZYCISK LINKU (DISCORD) */
+        .discord-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #ffffff;
+            color: #000000;
+            text-decoration: none;
+            padding: 16px 36px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1), 0 0 40px rgba(212, 175, 55, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .discord-btn:hover {
+            transform: translateY(-5px);
+            background: #5865F2; /* Kolor Discorda pojawia się płynnie po najechaniu */
+            color: #ffffff;
+            border-color: #5865F2;
+            box-shadow: 0 15px 40px rgba(88, 101, 242, 0.4), 0 0 30px rgba(212, 175, 55, 0.2);
+        }
+
+        /* IKONA DISCORDA (SVG) */
+        .discord-btn svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+            transition: fill 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Animowany deszcz złotych drobin i luksusowego pyłu -->
+    <canvas id="gold-canvas"></canvas>
+    <div class="ambient-glow"></div>
+
+    <div class="card-container">
+        <h1 class="brand-title">MistrzZarobku</h1>
+        <p class="brand-subtitle">Oficjalna Społeczność</p>
+        
+        <!-- Główny Link Przekierowujący -->
+        <a href="https://discord.gg/seYXQ9FMHy" class="discord-btn" target="_blank">
+            <svg viewBox="0 0 127.14 96.36">
+                <path d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65,1,77.53A105.73,105.73,0,0,0,32,96.36a74.37,74.37,0,0,0,6.72-10.93,68.6,68.6,0,0,1-10.64-5.12c.91-.67,1.81-1.37,2.65-2.1a75.22,75.22,0,0,0,72.76,0c.84.73,1.74,1.43,2.65,2.1a68.86,68.86,0,0,1-10.64,5.12,74.74,74.74,0,0,0,6.72,10.93,105.73,105.73,0,0,0,31.39-18.83C130.33,49.22,124.4,26.43,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.93,46,53.72,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.17,46,96,53,91,65.69,84.69,65.69Z"/>
+            </svg>
+            Dołącz do serwera
+        </a>
+    </div>
+
+    <script>
+        // SKRYPT GENERUJĄCY TRANQUIL GOLD PARTICLES (Elegancki opadający złoty pył)
+        const canvas = document.getElementById('gold-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        const numParticles = 60;
+        const particles = [];
+
+        class GoldParticle {
+            constructor() {
+                this.reset();
+                this.y = Math.random() * height; // losowa pozycja startowa na starcie strony
+            }
+
+            reset() {
+                this.x = Math.random() * width;
+                this.y = -10;
+                this.size = Math.random() * 2.5 + 0.5;
+                this.speedY = Math.random() * 0.6 + 0.2;
+                this.speedX = Math.random() * 0.4 - 0.2;
+                // Losowe odcienie luksusowego złota i szampańskiego blasku
+                const goldTones = ['rgba(212,175,55,', 'rgba(255,215,0,', 'rgba(244,232,193,'];
+                this.colorRoot = goldTones[Math.floor(Math.random() * goldTones.length)];
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+
+            update() {
+                this.y += this.speedY;
+                this.x += this.speedX;
+                
+                // Jeśli opadnie poza ekran - leci od nowa z góry
+                if (this.y > height || this.x < 0 || this.x > width) {
+                    this.reset();
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.colorRoot + this.opacity + ')';
+                ctx.fill();
+            }
+        }
+
+        // Inicjalizacja cząsteczek
+        for (let i = 0; i < numParticles; i++) {
+            particles.push(new GoldParticle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+</body>
+</html>
